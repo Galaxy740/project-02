@@ -12,3 +12,9 @@ Admin also CRUDs tickets` and flights` information.
 Users without login can see a resulting table with columns displaying each filght and the number of seats that have not been purchased yet. The rows of the table should be ordered by flight_id in ascending order. It is guaranteed that the information in table purchases is consistent and there are no purchases for non-existing flight_ids or seat_nos.
 
 Your additional task is to allow users to search for ticket availability for a flight. The should be able to search by flight code, destination or time of departure.
+
+
+Pages_plan:
+1.index /login/
+-Offers_section /order by/
+-to fill includes
