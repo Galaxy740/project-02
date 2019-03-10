@@ -54,6 +54,7 @@ if (!empty($_POST['username'])&& !empty('password')){
       <input type = "text" name = "username" class = "box"/>
       <input type = "password" name = "password" class = "box" />
       <input type = "submit" value = " Submit "/><br />
+      <a href="read.php">Continue as guest</a>
 </form>
 <?php 
 include 'includes/footer.php';
