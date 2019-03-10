@@ -14,7 +14,6 @@
 
 <?php
 session_start();
-$title = 'Read';
 include "includes/header.php";
 ?>
 <html>
@@ -25,7 +24,7 @@ include "includes/header.php";
    </head>
    
    
-              <p>User name - admin, Password 1234// username- user password 123</p> 
+              <p>User name - admin, Password 1234</p> 
             
    
 <?php
