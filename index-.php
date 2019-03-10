@@ -14,6 +14,7 @@
 
 <?php
 session_start();
+$title = 'Read';
 include "includes/header.php";
 ?>
 <html>
@@ -41,8 +42,8 @@ if (!empty($_POST['username'])&& !empty('password')){
       while ($row = mysqli_fetch_assoc($result)){
       $_SESSION['role'] = $row['user_type'];
    }
-      // header('Location: read.php');
-      echo 'success';
+      header('Location: read.php');
+      // echo 'success';
       // echo "<a href='read.php'>Read DB</a>";
    } else {
       echo mysqli_error($conn);
