@@ -14,9 +14,7 @@ Users without login can see a resulting table with columns displaying each filgh
 Your additional task is to allow users to search for ticket availability for a flight. The should be able to search by flight code, destination or time of departure.
 
 
-Pages_plan: <br>
-1 index /login/ -niki <br>
-2 read_page - tsvetan
+
 
 ---
 -Offers_section /sort functions/ <br>
