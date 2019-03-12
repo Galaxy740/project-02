@@ -25,8 +25,8 @@ $result = mysqli_query($conn, $q_read);
             <th class="column100 column3" data-column="column3">d&t of departure</th>
             <th class="column100 column4" data-column="column4">Available seats</th>
             <?php	if (($_SESSION['role']=='admin')) { ?>
-                <th>***</th>
-                <th>***</th>
+                <th class="column100 column1" data-column="column5">***</th>
+                <th class="column100 column1" data-column="column6">***</th>
             <?php } ?>
         </tr>
 
