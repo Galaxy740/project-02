@@ -31,6 +31,22 @@ include 'db_connect.php';
     <link rel="stylesheet" type="text/css" href="includes/css/util.css">
     <link rel="stylesheet" type="text/css" href="includes/css/main.css">
     <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="includes/table/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="includes/table/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="includes/table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="includes/table/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="includes/table/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="includes/table/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="includes/table/css/util.css">
+    <link rel="stylesheet" type="text/css" href="includes/table/css/main.css">
 
+    <!--===============================================================================================-->
 </head>
 <body>

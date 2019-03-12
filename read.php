@@ -12,18 +12,26 @@ $result = mysqli_query($conn, $q_read);
 	
 	if(mysqli_num_rows($result) > 0){
 ?>
-	<table border=1 class="table table-hover">
-		<tr class="warning">
-			<td>#</td>
-			<td>Destination</td>
-			<td>d&t of departure</td>
-			<td>Available seats</td>
-		<?php	if (($_SESSION['role']=='admin')) { ?>
-			<td>***</td>
-			<td>***</td>
-		<?php } ?>
-		</tr>
-		
+
+
+
+        <div class="table100 ver1 m-b-110">
+        <table data-vertable="ver1" >
+
+		<thead>
+        <tr class="row100 head">
+            <th class="column100 column1" data-column="column1">#</th>
+            <th class="column100 column2" data-column="column2">Destination</th>
+            <th class="column100 column3" data-column="column3">d&t of departure</th>
+            <th class="column100 column4" data-column="column4">Available seats</th>
+            <?php	if (($_SESSION['role']=='admin')) { ?>
+                <th>***</th>
+                <th>***</th>
+            <?php } ?>
+        </tr>
+
+        </thead>
+            <tbody>
 		<?php
 	while($row = mysqli_fetch_assoc($result)){
 		?>
@@ -52,7 +60,12 @@ $result = mysqli_query($conn, $q_read);
 		<?php 
 	}
 	?>
-	</table>
+            </tbody>
+    	        </table>
+                    </div>
+
+
+
 	<?php
 	}
 	
@@ -62,8 +75,9 @@ $result = mysqli_query($conn, $q_read);
 	} 
 	
  
-include 'includes/footer.php';
+
 ?>
+
 <div class="table100 ver3 m-b-110">
     <table data-vertable="ver3">
         <thead>
@@ -94,3 +108,8 @@ include 'includes/footer.php';
         </tbody>
     </table>
 </div>
+<?php
+include 'includes/footer.php';
+
+
+?>
