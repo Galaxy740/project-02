@@ -20,5 +20,5 @@ Pages_plan: <br>
 
 ---
 -Offers_section /sort functions/ <br>
--to put something in  includes <br>
+
 ---
