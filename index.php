@@ -12,13 +12,13 @@ if (!empty($_POST['username'])&& !empty('password')){
    $password = $_POST['password'];
 }
    if (isset($username) && isset($password)){
-   // $q_read = "SELECT  `firstname`, `password`, `role` FROM `customer` WHERE firstname=$username password=$password";
+   // $q_read = "SELECT  `firstname`, `password`, `user_type` FROM `customer` WHERE firstname=$username password=$password";
    $q_read ="SELECT * FROM user where first_name='".$username."' and password='".$password."'" ;
    $result = mysqli_query($conn, $q_read);
    if(mysqli_num_rows($result) >0){
       // echo "Success!";
       while ($row = mysqli_fetch_assoc($result)){
-      $_SESSION['role'] = $row['user_type'];
+          $_SESSION['user_type'] = $row['user_type'];
    }
       header('Location: read.php');
       // echo 'success';
@@ -30,7 +30,7 @@ if (!empty($_POST['username'])&& !empty('password')){
 
 } ?>
        <div class="limiter">
-           <div class="container-login100" style="background-image: url('images/airplane.jpg');">
+           <div class="container-login100" style="background-image: url('images/background.jpg');">
                <div class="wrap-login100 p-t-30 p-b-50" style="padding-left:15px; padding-right: 15px ">
 				<span class="login100-form-title p-b-41">
 					 Login
@@ -52,7 +52,7 @@ if (!empty($_POST['username'])&& !empty('password')){
                                Login
                            </button>
                        </div>
-                       <div style="padding-top: 15px">
+                       <div class="container-login100-form-btn m-t-32">
                             <p><a href="read.php" class="login100-form-btn "  >Continue as guest</a></p>
                        </div>
                    </form>
