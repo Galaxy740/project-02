@@ -50,4 +50,4 @@ include 'db_connect.php';
 		<link rel="stylesheet" type="text/css" href="includes/logout_button/css.css"
 
 </head>
-<body style="background-image: url('images/background.jpg');">
+<body >
