@@ -15,18 +15,26 @@ $result = mysqli_query($conn, $q_read);
 
 
 
-        <div class="table100 ver1 m-b-110">
-        <table data-vertable="ver1" >
+        <div class="table100 ver3 m-b-110">
+            <table data-vertable="ver3">
 
 		<thead>
-        <tr class="row100 head">
-            <th class="column100 column1" data-column="column1">#</th>
+        <tr class="row100 head"><?php
+
+            if (!empty($_SESSION)){
+
+            if (!empty($_SESSION["role"])) { ?>
+                <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="session_destroy();" >Sing out</a></th>
+                <?php
+            }
+            }
+            ?>
             <th class="column100 column2" data-column="column2">Destination</th>
             <th class="column100 column3" data-column="column3">d&t of departure</th>
             <th class="column100 column4" data-column="column4">Available seats</th>
             <?php	if (($_SESSION['role']=='admin')) { ?>
-                <th class="column100 column1" data-column="column5">***</th>
-                <th class="column100 column1" data-column="column6">***</th>
+                <th class="column100 column1" data-column="column5">Modify</th>
+                <th class="column100 column1" data-column="column6">del</th>
             <?php } ?>
         </tr>
 
@@ -35,34 +43,39 @@ $result = mysqli_query($conn, $q_read);
 		<?php
 	while($row = mysqli_fetch_assoc($result)){
 		?>
-		<tr class="warning">
-		<td>
+		<tr class="row100">
+		<td class="column100 column1">
 			<?= $row['flights_id']?>
 		</td>
-		<td>
+		<td class="column100 column2">
 			<?= $row['dp']?>
 		</td>
-		<td>
+		<td class="column100 column3">
 			<?= $row['dd']?>
 		</td>
-		<td>
+		<td class="column100 column4">
 			<?= $row['Available']?>
 		</td>
-		<?php if (($_SESSION['role']=='admin')) { ?>
-		<td>
-			<a class="btn btn-outline-warning" href="update.php?id=<?=$row['flight_id']?>">Update</a>
-		</td>
-		<td>
-			<a class="btn btn-outline-danger" href="delete.php?id=<?=$row['flight_id']?>">Delete</a>
-		</td>
-	<?php } ?>
-		</tr>
+
+		<?php if ($_SESSION['role']=='admin') {
+
+		    ?>
+            <td class="column100 column5">
+                <a class="btn btn-outline-warning" href="update.php?id=<?=$row['flight_id']?>">Update</a>
+            </td>
+            <td class="column100 column5">
+                <a class="btn btn-outline-danger" href="delete.php?id=<?=$row['flight_id']?>">Delete</a>
+            </td>
+
+	    <?php }// end of session check ?>
+
 		<?php 
-	}
-	?>
+	    }//end of while
+	    ?>
+        </tr>
             </tbody>
-    	        </table>
-                    </div>
+        </table>
+        </div>
 
 
 
@@ -78,36 +91,6 @@ $result = mysqli_query($conn, $q_read);
 
 ?>
 
-<div class="table100 ver3 m-b-110">
-    <table data-vertable="ver3">
-        <thead>
-        <tr class="row100 head">
-            <th class="column100 column1" data-column="column1"></th>
-            <th class="column100 column2" data-column="column2">Sunday</th>
-            <th class="column100 column3" data-column="column3">Monday</th>
-            <th class="column100 column4" data-column="column4">Tuesday</th>
-            <th class="column100 column5" data-column="column5">Wednesday</th>
-            <th class="column100 column6" data-column="column6">Thursday</th>
-            <th class="column100 column7" data-column="column7">Friday</th>
-            <th class="column100 column8" data-column="column8">Saturday</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="row100">
-            <td class="column100 column1" data-column="column1">Lawrence Scott</td>
-            <td class="column100 column2" data-column="column2">8:00 AM</td>
-            <td class="column100 column3" data-column="column3">--</td>
-            <td class="column100 column4" data-column="column4">--</td>
-            <td class="column100 column5" data-column="column5">8:00 AM</td>
-            <td class="column100 column6" data-column="column6">--</td>
-            <td class="column100 column7" data-column="column7">5:00 PM</td>
-            <td class="column100 column8" data-column="column8">8:00 AM</td>
-        </tr>
-
-    
-        </tbody>
-    </table>
-</div>
 <?php
 include 'includes/footer.php';
 

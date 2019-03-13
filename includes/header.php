@@ -10,7 +10,7 @@ include 'db_connect.php';
 	<title><?= $title ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+    <link rel="icon" type="image/png" href="includes/images/icons/favicon.png"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="includes/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -47,6 +47,5 @@ include 'db_connect.php';
     <link rel="stylesheet" type="text/css" href="includes/table/css/util.css">
     <link rel="stylesheet" type="text/css" href="includes/table/css/main.css">
 
-    <!--===============================================================================================-->
 </head>
 <body>

@@ -1,4 +1,4 @@
-<html>
+
 
 <?php
 session_start();
@@ -25,7 +25,7 @@ if (!empty($_POST['username'])&& !empty('password')){
       // echo "<a href='read.php'>Read DB</a>";
    } else {
       echo mysqli_error($conn);
-      echo "<p><script type='text/javascript' src='includes/js/TsJscript.js'></script></p>";
+      echo "<script type='text/javascript' src='includes/js/TsJscript.js'></script>";
    }
 
 } ?>
