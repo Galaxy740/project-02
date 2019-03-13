@@ -19,7 +19,7 @@ $result = mysqli_query($conn, $q_read);
 
 		<thead>
         <tr class="row100 head">
-            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="" >Sing out</a></th>
+            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="<?php session_destroy();?>">Sign out</a></th>
             <th class="column100 column2" data-column="column2">Destination</th>
             <th class="column100 column3" data-column="column3">d&t of departure</th>
             <th class="column100 column4" data-column="column4">Available seats</th>
@@ -48,7 +48,7 @@ $result = mysqli_query($conn, $q_read);
 			<?= $row['Available']?>
 		</td>
 
-		<?php if (!isset($_SESSION['user_type'])=='admin') {
+		<?php if (!isset($_SESSION['user_type']) == 'admin') {
 
 		    ?>
             <td class="column100 column5">
@@ -73,7 +73,7 @@ $result = mysqli_query($conn, $q_read);
 	<?php
 	}
 	
-	if (!isset($_SESSION['user_type'])=='admin') { ?>
+	if (!isset($_SESSION['user_type']) == 'admin') { ?>
 		<a class="alert-link" href="create.php">Add new flight</a>
 	<?php 
 	} 
