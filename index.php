@@ -11,7 +11,7 @@ if (!empty($_POST['username'])&& !empty('password')){
    $password = $_POST['password'];
 }
    if (isset($username) && isset($password)){
-   
+
    $q_read ="SELECT * FROM user where first_name='".$username."' and password='".$password."'" ;
    $result = mysqli_query($conn, $q_read);
    if(mysqli_num_rows($result) >0){
@@ -37,7 +37,7 @@ if (!empty($_POST['username'])&& !empty('password')){
                    <form class="login100-form validate-form p-b-33 p-t-5" action="#" method="post">
 
                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                           <input class="input100 box" type="text" name="username" placeholder="Use Firstname">
+                           <input class="input100 box" type="text" name="username" placeholder="Username">
                            <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                        </div>
 
@@ -61,10 +61,6 @@ if (!empty($_POST['username'])&& !empty('password')){
 
 
 
-<?php 
+<?php
 include 'includes/footer.php';
 ?>
-
-
-
-
