@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> c3b8cd350b3d0a99348f2be86efda26977763216
 
 <?php
 session_start();
@@ -15,7 +11,7 @@ if (!empty($_POST['username'])&& !empty('password')){
    $password = $_POST['password'];
 }
    if (isset($username) && isset($password)){
-   // $q_read = "SELECT  `firstname`, `password`, `user_type` FROM `customer` WHERE firstname=$username password=$password";
+   
    $q_read ="SELECT * FROM user where first_name='".$username."' and password='".$password."'" ;
    $result = mysqli_query($conn, $q_read);
    if(mysqli_num_rows($result) >0){
