@@ -12,7 +12,7 @@ if (!empty($_POST['username'])&& !empty('password')){
 }
    if (isset($username) && isset($password)){
 
-   $q_read ="SELECT * FROM user where first_name='".$username."' and password='".$password."'" ;
+   $q_read ="SELECT * FROM user where username='".$username."' and password='".$password."'" ;
    $result = mysqli_query($conn, $q_read);
    if(mysqli_num_rows($result) >0){
       // echo "Success!";
