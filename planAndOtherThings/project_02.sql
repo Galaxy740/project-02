@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11 март 2019 в 15:28
--- Версия на сървъра: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Mar 13, 2019 at 04:16 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `brand`
+-- Table structure for table `brand`
 --
 
 CREATE TABLE `brand` (
@@ -34,7 +34,7 @@ CREATE TABLE `brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `brand`
+-- Dumping data for table `brand`
 --
 
 INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `destination`
+-- Table structure for table `destination`
 --
 
 CREATE TABLE `destination` (
@@ -52,7 +52,7 @@ CREATE TABLE `destination` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `destination`
+-- Dumping data for table `destination`
 --
 
 INSERT INTO `destination` (`destination_id`, `destination_point`) VALUES
@@ -62,7 +62,7 @@ INSERT INTO `destination` (`destination_id`, `destination_point`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `flight`
+-- Table structure for table `flight`
 --
 
 CREATE TABLE `flight` (
@@ -76,7 +76,7 @@ CREATE TABLE `flight` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `flight`
+-- Dumping data for table `flight`
 --
 
 INSERT INTO `flight` (`flights_id`, `destination_id`, `planes_id`, `prurchases_seats`, `date_departure`, `user_id`, `flight_code`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `flight` (`flights_id`, `destination_id`, `planes_id`, `prurchases_s
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `plane`
+-- Table structure for table `plane`
 --
 
 CREATE TABLE `plane` (
@@ -97,7 +97,7 @@ CREATE TABLE `plane` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `plane`
+-- Dumping data for table `plane`
 --
 
 INSERT INTO `plane` (`planes_id`, `brand_id`, `seats`) VALUES
@@ -106,11 +106,12 @@ INSERT INTO `plane` (`planes_id`, `brand_id`, `seats`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
+  `username` varchar(64) NOT NULL,
   `first_name` varchar(64) NOT NULL,
   `last_name` varchar(64) NOT NULL,
   `e-mail` varchar(128) NOT NULL,
@@ -121,12 +122,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `e-mail`, `phone`, `password`, `date_added`, `user_type`) VALUES
-(1, 'admin', 'admin', 'admin@abv.bg', '', '1234', '2019-03-10 16:50:47', 'admin'),
-(5, 'user', '', '', '', '123', '2019-03-10 16:53:37', 'user');
+INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `e-mail`, `phone`, `password`, `date_added`, `user_type`) VALUES
+(1, 'admin11', 'admin', 'admin', 'admin@abv.bg', '', '1234', '2019-03-13 15:13:47', 'admin'),
+(5, 'user43', 'user', '', '', '', '123', '2019-03-13 15:13:43', 'user'),
+(6, 'galaxy7406', 'tsvetan', 'gtergov', 'tsvetan@myself.com', '+359878935778', '123456789', '2019-03-13 15:12:09', 'user');
 
 --
 -- Indexes for dumped tables
@@ -198,7 +200,7 @@ ALTER TABLE `plane`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
