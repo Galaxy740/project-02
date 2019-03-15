@@ -1,8 +1,10 @@
+<body style="background-image: url('images/background.jpg');">
 <div class="container">
 
 		<?php
 
 		session_start();
+
 		$title = 'Read';
 		include "includes/header.php";
 
@@ -13,22 +15,23 @@
 
 			if(mysqli_num_rows($result) > 0){
 		?>
-
-
-
+						<?php 	include "includes/nav/nav.html"; ?>
 		        <div class="table100 ver3 m-b-110">
 		            <table data-vertable="ver3">
 
 				<thead>
+
 		        <tr class="row100 head">
-		            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="<?php session_destroy();?>">Sign out</a></th>
+		            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="<?php session_destroy()?>">Sign out</a></th>
 		            <th class="column100 column2" data-column="column2">Destination</th>
 		            <th class="column100 column3" data-column="column3">d&t of departure</th>
 		            <th class="column100 column4" data-column="column4">Available seats</th>
 		            <?php	if (isset($_SESSION['user_type']) == 'admin') { ?>
 		                <th class="column100 column1" data-column="column5">Modify</th>
 		                <th class="column100 column1" data-column="column6">del</th>
-		            <?php } ?>
+		            <?php }
+
+		            ?>
 		        </tr>
 
 		        </thead>
@@ -57,7 +60,7 @@
 		                <a class="btn btn-outline-warning" href="update.php?id=<?=$row['flight_id']?>">Update</a>
 		            </td>
 		            <td class="column100 column5">
-		                <a class="btn btn-outline-danger" href="delete.php?id=<?=$row['flight_id']?>">Delete</a>
+		                <a class="btn btn-outline-danger" href="#?id=<?=$row['flight_id']?>">Delete</a>
 		            </td>
 
 
@@ -70,24 +73,23 @@
 		            </tbody>
 		        </table>
 		        </div>
+							<?php
+						if (isset($_SESSION['user_type']) == 'admin') { ?>
+							<a class="btn btn-primary" href="create.php">Add new flight</a>
+						<?php
+                        }
+                        elseif (isset( $_SESSION['user_type']) == 'user'){
+                            echo "hello";
+                        }
 
-
-
-			<?php
 			}
-
-			if (isset($_SESSION['user_type']) == 'admin') { ?>
-				<a class="alert-link" href="create.php">Add new flight</a>
-			<?php
-			}
-
-
-
-		?>
+?>
 
 		<?php
 		include 'includes/footer.php';
 
 
 		?>
+
 </div>
+</body>
