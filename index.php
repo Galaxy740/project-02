@@ -24,6 +24,7 @@ $q_read ="SELECT * FROM `user` where username='".$username."' and password='".$p
         // echo 'success';
         // echo "<a href='read.php'>Read DB</a>";
     } else {
+        echo mysqli_error($conn);
         echo "<script type='text/javascript' src='includes/js/TsJscript.js'></script>";
     }
 } ?>
