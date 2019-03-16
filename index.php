@@ -16,18 +16,24 @@ $q_read ="SELECT * FROM `user` where username='".$username."' and password='".$p
 
    $result = mysqli_query($conn, $q_read);
     if(mysqli_num_rows($result) >0){
-        // echo "Success!";
+        echo "Success!";
         while ($row = mysqli_fetch_assoc($result)){
             $_SESSION['user_type'] = $row['user_type'];
+            header('Location: read.php');
         }
-        header('Location: read.php');
+
         // echo 'success';
         // echo "<a href='read.php'>Read DB</a>";
-    } else {
+    }
+    else {
         echo mysqli_error($conn);
         echo "<script type='text/javascript' src='includes/js/TsJscript.js'></script>";
     }
-} ?>
+}
+
+
+
+?>
 
 <div class="limiter">
            <div class="container-login100" style="background-image: url('images/background.jpg');">
@@ -38,12 +44,12 @@ $q_read ="SELECT * FROM `user` where username='".$username."' and password='".$p
                    <form class="login100-form validate-form p-b-33 p-t-5" action="#" method="post">
 
                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                           <input class="input100 box" type="text" name="username" placeholder="Username">
+                           <input class="input100 box" type="text" name="username" placeholder="Username" required>
                            <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                        </div>
 
                        <div class="wrap-input100 validate-input" data-validate="Enter password">
-                           <input class="input100" type="password" name="password" placeholder="Password">
+                           <input class="input100" type="password" name="password" placeholder="Password" required>
                            <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                        </div>
 
@@ -56,9 +62,9 @@ $q_read ="SELECT * FROM `user` where username='".$username."' and password='".$p
                             <p><a href="read.php" class="login100-form-btn ">Continue as guest</a></p>
                        </div>
                        <div class="container-login100-form-btn m-t-32">
-                         <a class="txt2" href="register.php">
-                           Create your Account
-                           <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+                         <a class="login100-form-btn" href="register.php">
+                           Register
+                           <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                          </a>
                        </div>
                    </form>
@@ -71,3 +77,4 @@ $q_read ="SELECT * FROM `user` where username='".$username."' and password='".$p
 <?php
 include 'includes/footer.php';
 ?>
+</body>

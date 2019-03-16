@@ -3,7 +3,7 @@
 
 		<?php
 
-		session_start();
+        session_start();
 
 		$title = 'Read';
 		include "includes/header.php";
@@ -22,14 +22,15 @@
 				<thead>
 
 		        <tr class="row100 head">
-		            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="<?php session_destroy()?>"><i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>Sign out</a></th>
-		            <th class="column100 column2" data-column="column2">Destination</th>
+		            <th class="column100 column1 " data-column="column1"><a class="btn btn-danger" href="includes/modules/logout_module.php"><i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>Sign out</a></th>
+								
+								<th class="column100 column2" data-column="column2">Destination</th>
 		            <th class="column100 column3" data-column="column3">d&t of departure</th>
 		            <th class="column100 column4" data-column="column4">Available seats</th>
 		            <?php	if (isset($_SESSION['user_type']) == 'admin') { ?>
-		                <th class="column100 column1" data-column="column5">Modify</th>
-		                <th class="column100 column1" data-column="column6">del</th>
-		            <?php }
+                    <th class="column100 column5" data-column="column5">Modify</th>
+                    <th class="column100 column6" data-column="column6">del</th>
+                    <?php }
 
 		            ?>
 		        </tr>
