@@ -55,6 +55,12 @@ $q_read ="SELECT * FROM `user` where username='".$username."' and password='".$p
                        <div class="container-login100-form-btn m-t-32">
                             <p><a href="read.php" class="login100-form-btn ">Continue as guest</a></p>
                        </div>
+                       <div class="container-login100-form-btn m-t-32">
+                         <a class="txt2" href="register.php">
+                           Create your Account
+                           <i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+                         </a>
+                       </div>
                    </form>
                </div>
            </div>

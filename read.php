@@ -22,7 +22,7 @@
 				<thead>
 
 		        <tr class="row100 head">
-		            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="<?php session_destroy()?>">Sign out</a></th>
+		            <th class="column100 column1 " data-column="column1"><a class="btn btn-outline-danger" href="index.php" onclick="<?php session_destroy()?>"><i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>Sign out</a></th>
 		            <th class="column100 column2" data-column="column2">Destination</th>
 		            <th class="column100 column3" data-column="column3">d&t of departure</th>
 		            <th class="column100 column4" data-column="column4">Available seats</th>
