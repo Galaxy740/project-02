@@ -58,10 +58,10 @@
 
 				    ?>
 		            <td class="column100 column5">
-		                <a class="btn btn-outline-warning" href="update.php?id=<?=$row['flight_id']?>">Update</a>
+		                <a class="btn btn-outline-warning" href="update.php?id=<?=$row['flights_id']?>">Update</a>
 		            </td>
 		            <td class="column100 column5">
-		                <a class="btn btn-outline-danger" href="#?id=<?=$row['flight_id']?>">Delete</a>
+		                <a class="btn btn-outline-danger" href="#?id=<?=$row['flights_id']?>">Delete</a>
 		            </td>
 
 
