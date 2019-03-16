@@ -13,16 +13,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 	<div class="row justify-content-md-center">			
 		<div class="col-sm-10">			
 			<form method="post" action="">
-				<input type="text" id="datetime" readonly>
-					<script>
-    					var today = new Date();
-    					$("#datetime").datetimepicker({
-        					format: 'yyyy-mm-dd hh:ii',
-        					autoclose: true,
-        					todayBtn: true,
-        					startDate : today
-    					});
-					</script>
+
 					
 						<div class="form-group">
 							<label for="destination">Destination select</label>
@@ -43,7 +34,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 						<input type="text" class="form-control" id="flight code" name="flight_code" placeholder="flight code here ...">
 					</div>
 							<div class="form-group">
-								<button type="submit" name="submit" class="btn btn-success">SAVE product</button>
+								<button type="submit" name="submit" class="btn btn-success">Save</button>
 							</div>
 			</form>
 		</div>
