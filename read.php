@@ -28,8 +28,8 @@
 		            <th class="column100 column3" data-column="column3">d&t of departure</th>
 		            <th class="column100 column4" data-column="column4">Available seats</th>
 		            <?php	if (isset($_SESSION['user_type']) == 'admin') { ?>
-                    <th class="column100 column5" data-column="column5">Modify</th>
-                    <th class="column100 column6" data-column="column6">del</th>
+                    <th class="column100 column5" data-column="column5">Update</th>
+                    <th class="column100 column6" data-column="column6">Delete</th>
                     <?php }
 
 		            ?>
@@ -58,10 +58,10 @@
 
 				    ?>
 		            <td class="column100 column5">
-		                <a class="btn btn-outline-warning" href="update.php?id=<?=$row['flights_id']?>">Update</a>
+		                <a class="btn btn-outline-warning" href="update.php?flight=<?=$row['flights_id']?>">Update</a>
 		            </td>
 		            <td class="column100 column5">
-		                <a class="btn btn-outline-danger" href="#?id=<?=$row['flights_id']?>">Delete</a>
+		                <a class="btn btn-outline-danger" href="delete.php?flight=<?=$row['flights_id']?>">Delete</a>
 		            </td>
 
 
