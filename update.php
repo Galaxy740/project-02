@@ -88,10 +88,10 @@ if(isset($_POST['submit'])){
 
 		if($result){
 		// echo "Success!";
-			// header('Location: read.php');
+			header('Location: read.php');
 		} else {
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
 		}
-
+}
 
