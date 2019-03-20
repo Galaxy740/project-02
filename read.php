@@ -8,7 +8,7 @@
 		$title = 'Read';
 		include "includes/header.php";
 
-		$q_read = "SELECT prurchases_seats, `date_departure` dd,destination_point dp, `flights_id`, (seats-prurchases_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination";
+		$q_read = "SELECT prurchases_seats, date_departure dd,destination_point dp, `flights_id`, (seats-prurchases_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
 		$result = mysqli_query($conn, $q_read);
 
 
