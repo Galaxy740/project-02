@@ -1,25 +1,26 @@
 <?php
 
 session_start();
- 
+
 $title = 'Update';
 include "includes/header.php";
 
 $flights_id = $_GET['flight'];
+
 
 $read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,purchased_seats,flight_code, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON f.destination_id = d.destination_id ";
 $read_query .= "WHERE f.flights_id=". $flights_id;
 
 $result = mysqli_query($conn, $read_query);
 
-$row_flight = mysqli_fetch_assoc($result);
+$row_flight = mysqli_fetch_array($result);
 
 $destination_query = "SELECT * FROM destination";
 $destination_result = mysqli_query($conn, $destination_query);
 
 
-
 ?>
+
 <div class="container">
 	<div class="row justify-content-md-center">
 		<h2>Update</h2>
@@ -92,12 +93,5 @@ if(isset($_POST['submit'])){
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
 		}
-
-}
-
-
-
-include "includes/footer.php";
-
 
 

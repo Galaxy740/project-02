@@ -4,18 +4,19 @@ include 'db_connect.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
 
-	<meta charset="UTF-8">
-	<title><?= $title ?></title>
+    <meta charset="UTF-8">
+    <title><?= $title ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/png" href="includes/images/icons/favicon.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="includes/vendor/bootstrap/css/bootstrap.min.css">
 
-  	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 
     <link rel="stylesheet" type="text/css" href="includes/vendor/animate/animate.css">
