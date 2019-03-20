@@ -8,7 +8,7 @@
 		$title = 'Read';
 		include "includes/header.php";
 
-		$q_read = "SELECT `date_departure` dd,destination_point dp, `flights_id`, (seats-prurchases_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination";
+		$q_read = "SELECT prurchases_seats, `date_departure` dd,destination_point dp, `flights_id`, (seats-prurchases_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination";
 		$result = mysqli_query($conn, $q_read);
 
 
@@ -27,7 +27,9 @@
 								<th class="column100 column2" data-column="column2">Destination</th>
 		            <th class="column100 column3" data-column="column3">d&t of departure</th>
 		            <th class="column100 column4" data-column="column4">Available seats</th>
+		            
 		            <?php	if (isset($_SESSION['user_type']) == 'admin') { ?>
+		            <th class="column100 column4" data-column="column4">Purchased seats</th>
                     <th class="column100 column5" data-column="column5">Update</th>
                     <th class="column100 column6" data-column="column6">Delete</th>
                     <?php }
@@ -53,10 +55,14 @@
 				<td class="column100 column4">
 					<?= $row['Available']?>
 				</td>
+			
 
 				<?php if (isset($_SESSION['user_type']) == 'admin') {
 
 				    ?>
+				    <td class="column100 column4">
+					<?= $row['prurchases_seats']?>
+				</td>
 		            <td class="column100 column5">
 		                <a class="btn btn-outline-warning" href="update.php?flight=<?=$row['flights_id']?>">Update</a>
 		            </td>

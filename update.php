@@ -29,11 +29,11 @@ $destination_result = mysqli_query($conn, $destination_query);
 			<form method="post" action="">
 				<div class="form-group">
 					<label for="product_name">Date picker</label>
-					<input type="datetime" class="form-control" id="date_picker" name="date_picker" value="<?= $row_flight['date_departure'] ?>">
+					<input type="datetime-local" class="form-control" id="date_picker" name="date_picker" value="<?= $row_flight['date_departure'] ?>">
 				</div>
 				<div class="form-group">
 					<label for="product_name">Purchased seats</label>
-					<input type="datetime" class="form-control" id="prurchases_seats" name="prurchases_seats" value="<?= $row_flight['prurchases_seats'] ?>">
+					<input type="text" class="form-control" id="prurchases_seats" name="prurchases_seats" value="<?= $row_flight['prurchases_seats'] ?>">
 				</div>
 				<div class="form-group">
 					<label for="product_name">Flight code</label>
@@ -54,7 +54,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="submit" name="submit" class="btn btn-success">SAVE new flight</button>
+					<button type="submit" name="submit" class="btn btn-success">SAVE changes</button>
 				</div>
 			</form>
 		</div>
@@ -67,12 +67,12 @@ if(isset($_POST['submit'])){
 		
 		$destination 			= $_POST['destination_id'];
 		
-		$date_modified 			= date('Y-m-d h:i:s');
+		$date_departure 			= date('Y-m-d h:i:s');
 
 		//to do add hidden field product id
 		$flight_update_query = "UPDATE flight SET flight_code=" . $flight_code .", ";
 		$flight_update_query .= "destination_id=" . (int)$destination . ", ";
-		$flight_update_query .= "date_departure=" . $date_modified;
+		$flight_update_query .= "date_departure=" . $date_departure;
 		$flight_update_query .= " WHERE flights_id=" . $flights_id ;
 		$result_update = mysqli_query($conn, $flight_update_query);
 
