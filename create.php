@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $title = 'Create';
 include "includes/header.php";
 
