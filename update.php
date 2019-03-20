@@ -7,7 +7,7 @@ include "includes/header.php";
 
 $flights_id = $_GET['flight'];
 
-$read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,purchased_seats,flight_code, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON f.destination_id = d.destination_id ";
+$read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,purchased_seats,flight_code, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id ";
 $read_query .= "WHERE f.flights_id=". $flights_id;
 
 $result = mysqli_query($conn, $read_query);
@@ -64,22 +64,20 @@ $destination_result = mysqli_query($conn, $destination_query);
 if(isset($_POST['submit'])){
 		
 		$flight_code 			= $_POST['flight_code'];
-		
+		$purchased_seats        = $_POST['purchased_seats'];
 		$destination 			= $_POST['destination_id'];
 		
 		$date_departure 			= date('Y-m-d h:i:s');
 
-		//to do add hidden field product id
+		
 		$flight_update_query = "UPDATE flight SET flight_code=" . $flight_code .", ";
+		$flight_update_query .= "purchased_seats=" . (int)$purchased_seats . ", ";
 		$flight_update_query .= "destination_id=" . (int)$destination . ", ";
 		$flight_update_query .= "date_departure=" . $date_departure;
 		$flight_update_query .= " WHERE flights_id=" . $flights_id ;
 		$result_update = mysqli_query($conn, $flight_update_query);
 
-		// $product_description_update_query = "UPDATE product_description SET name='$product_name'";
-		// $product_description_update_query .= " WHERE product_id = $product_id";	
-		// 	var_dump($product_description_update_query);
-		// $result = mysqli_query($conn, $product_description_update_query);
+		
 
 		if($result){
 		// echo "Success!";

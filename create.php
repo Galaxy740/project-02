@@ -8,7 +8,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 ?>
 <div class="container">
 	<div class="row justify-content-md-center">
-		<h2>Read</h2>
+		
 	</div>
 	<div class="row justify-content-md-center">			
 		<div class="col-sm-10">			
