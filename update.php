@@ -30,10 +30,16 @@ $destination_result = mysqli_query($conn, $destination_query);
 			<form method="post" action="">
 				<div class="form-group">
 					<label for="product_name">Date picker</label>
-					<input type="datetime-local" class="form-control" id="date_picker" name="date_picker" value="<?= $row_flight['date_departure'] ?>">
+					<input type="datetime-local" class="form-control" id="date_picker" name="date_picker" value="<?= date('Y-m-d\TH:i:s',strtotime($row_flight['dd'])); ?>">
 				</div>
 				<div class="form-group">
 					<label for="product_name">Purchased seats</label>
+					<?php 
+						if(isset($_SESSION['seat_error'])){
+							echo '<span style="color:#f00">'.$_SESSION['seat_error'].'<span>';
+						} 
+						unset($_SESSION['seat_error']);
+					?>
 					<input type="text" class="form-control" id="purchased_seats" name="purchased_seats" value="<?= $row_flight['purchased_seats'] ?>">
 				</div>
 				<div class="form-group">
@@ -71,9 +77,7 @@ if(isset($_POST['submit'])){
 		$destination 			= $_POST['destination_id'];
 
 		$date_field         = date('Y-m-d H:i:s',strtotime($_POST['date_picker']));
-		// var_dump($date_field);
-		// die;
-		// $date_departure 		= date('Y-m-d h:i:s');
+		if ($purchased_seats < $row_flight['Available']) {
 
 		
 		$flight_update_query = "UPDATE flight SET flight_code=" . $flight_code .", ";
@@ -93,5 +97,9 @@ if(isset($_POST['submit'])){
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
 		}
+	}else {
+		$_SESSION['seat_error'] = 'is not a valid purchase request !!!';
+		header('Location: update.php?flight='.$flights_id);
+	}
 }
 

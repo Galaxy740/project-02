@@ -45,25 +45,17 @@ if (isset($_POST['reg_user'])) {
 
     $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
 
-    $user_check_query = "SELECT * FROM user WHERE username='" . $username . "' and password='" . $password . "'";
-    // $result = mysqli_query($db, $user_check_query);
-    // $username = mysqli_fetch_assoc($result);
-
-    if ($username) { // if user exists
-        if ($username['username'] === $username) {
-            echo "Username already exists";
-        }
+    $user_check_query = "SELECT * FROM user WHERE username='" . $username . "'";
+    $result = mysqli_query($db, $user_check_query);
+    
+    if(mysqli_num_rows($result) > 0){
+        echo "taken";
+    }else{
+        $query = "INSERT INTO user (username, password, first_name, last_name) VALUES ('$username', '$password', '$first_name', '$last_name')";
+        mysqli_query($db, $query);
+        $_SESSION['username'] = $username;
+        header('location: read.php');
     }
-
-
-    // if (count($errors) == 0) {
-    // $password = md5($password_1);//encrypt the password before saving in the database
-
-    $query = "INSERT INTO user (username, password, first_name, last_name) VALUES ('$username', '$password', '$first_name', '$last_name')";
-    mysqli_query($db, $query);
-    $_SESSION['username'] = $username;
-
-    header('location: read.php');
 }
 
 include "includes/footer.php";
