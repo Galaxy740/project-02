@@ -7,7 +7,7 @@ include "includes/header.php";
 
 $flights_id = $_GET['flight'];
 
-$read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,purchased_seats,flight_code, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id ";
+$read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,purchased_seats,flight_code, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON f.destination_id = d.destination_id ";
 $read_query .= "WHERE f.flights_id=". $flights_id;
 
 $result = mysqli_query($conn, $read_query);
@@ -39,6 +39,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 					<label for="product_name">Flight code</label>
 					<input type="text" class="form-control" id="flight_code" name="flight_code" value="<?= $row_flight['flight_code'] ?>">
 				</div>
+
 				<div class="form-group">
 					<label for="manufacturer">Example select</label>
 					<select class="form-control" id="destination" name="destination_id">
@@ -53,6 +54,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 						<?php } ?>
 					</select>
 				</div>
+
 				<div class="form-group">
 					<button type="submit" name="submit" class="btn btn-success">SAVE changes</button>
 				</div>
@@ -66,22 +68,26 @@ if(isset($_POST['submit'])){
 		$flight_code 			= $_POST['flight_code'];
 		$purchased_seats        = $_POST['purchased_seats'];
 		$destination 			= $_POST['destination_id'];
-		
-		$date_departure 			= date('Y-m-d h:i:s');
+
+		$date_field         = date('Y-m-d H:i:s',strtotime($_POST['date_picker']));
+		// var_dump($date_field);
+		// die;
+		// $date_departure 		= date('Y-m-d h:i:s');
 
 		
 		$flight_update_query = "UPDATE flight SET flight_code=" . $flight_code .", ";
-		$flight_update_query .= "purchased_seats=" . (int)$purchased_seats . ", ";
+		$flight_update_query .="purchased_seats=" . (int)$purchased_seats . ", ";
 		$flight_update_query .= "destination_id=" . (int)$destination . ", ";
-		$flight_update_query .= "date_departure=" . $date_departure;
-		$flight_update_query .= " WHERE flights_id=" . $flights_id ;
+		$flight_update_query .= "date_departure='$date_field' ";
+		$flight_update_query .= "WHERE flights_id = $flights_id";
+		// var_dump($flight_update_query)
 		$result_update = mysqli_query($conn, $flight_update_query);
 
-		
+		var_dump($result_update);
 
 		if($result){
 		// echo "Success!";
-			header('Location: read.php');
+			// header('Location: read.php');
 		} else {
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
