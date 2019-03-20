@@ -8,7 +8,7 @@
 		$title = 'Read';
 		include "includes/header.php";
 
-		$q_read = "SELECT prurchases_seats, date_departure dd,destination_point dp, `flights_id`, (seats-prurchases_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
+		$q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
 		$result = mysqli_query($conn, $q_read);
 
 
@@ -61,7 +61,7 @@
 
 				    ?>
 				    <td class="column100 column4">
-					<?= $row['prurchases_seats']?>
+					<?= $row['purchased_seats']?>
 				</td>
 		            <td class="column100 column5">
 		                <a class="btn btn-outline-warning" href="update.php?flight=<?=$row['flights_id']?>">Update</a>

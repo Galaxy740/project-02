@@ -7,7 +7,7 @@ include "includes/header.php";
 
 $flights_id = $_GET['flight'];
 
-$read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,prurchases_seats,flight_code, (seats-prurchases_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON f.destination_id = d.destination_id ";
+$read_query = "SELECT d.destination_id,`date_departure` dd,destination_point dp, `flights_id`,purchased_seats,flight_code, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON f.destination_id = d.destination_id ";
 $read_query .= "WHERE f.flights_id=". $flights_id;
 
 $result = mysqli_query($conn, $read_query);
@@ -33,7 +33,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 				</div>
 				<div class="form-group">
 					<label for="product_name">Purchased seats</label>
-					<input type="text" class="form-control" id="prurchases_seats" name="prurchases_seats" value="<?= $row_flight['prurchases_seats'] ?>">
+					<input type="text" class="form-control" id="purchased_seats" name="purchased_seats" value="<?= $row_flight['purchased_seats'] ?>">
 				</div>
 				<div class="form-group">
 					<label for="product_name">Flight code</label>
