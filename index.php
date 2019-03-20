@@ -25,7 +25,7 @@ if (isset($username) && isset($password)) {
         // echo 'success';
         // echo "<a href='read.php'>Read DB</a>";
     } else {
-        echo mysqli_error($conn);
+        // echo mysqli_error($conn);
         echo "<script type='text/javascript' src='includes/js/TsJscript.js'></script>";
     }
 }

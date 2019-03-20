@@ -12,7 +12,7 @@ $read_query .= "WHERE f.flights_id=" . $flights_id;
 
 $result = mysqli_query($conn, $read_query);
 
-$row_flight = mysqli_fetch_assoc($result);
+$row_flight = mysqli_fetch_array($result);
 
 $destination_query = "SELECT * FROM destination";
 $destination_result = mysqli_query($conn, $destination_query);
