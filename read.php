@@ -8,6 +8,7 @@
     $title = 'Read';
     include "includes/header.php";
 
+
     $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
     $result = mysqli_query($conn, $q_read);
 
@@ -88,8 +89,6 @@
         if (isset($_SESSION['user_type']) == 'admin') { ?>
             <a class="btn btn-primary" href="create.php">Add new flight</a>
             <?php
-        } elseif (isset($_SESSION['user_type']) == 'user') {
-            echo "hello";
         }
 
     }
