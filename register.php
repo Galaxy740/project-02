@@ -19,7 +19,7 @@ include "includes/header.php";
         <a class="underlineHover" href="index.php">Sign in</a>
     </div>
     <div id="formFooter">
-        <a class="underlineHover" href="index.php" onclick="<?php session_destroy(); ?>">Back</a>
+
     </div>
 
 
@@ -45,32 +45,9 @@ include "includes/header.php";
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Birthday</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Gender</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Female
-                                            <input type="radio" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -81,25 +58,18 @@ include "includes/header.php";
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-1" type="text" name="phone">
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <label class="label">Subject</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option>Subject 1</option>
-                                    <option>Subject 2</option>
-                                    <option>Subject 3</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
+
                         </div>
                         <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" href="includes/modules/logout_module.php" >Back</button>
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+
                         </div>
+
                     </form>
                 </div>
             </div>

@@ -18,7 +18,7 @@ if (isset($username) && isset($password)) {
 
     $result = mysqli_query($conn, $q_read);
     if (mysqli_num_rows($result) > 0) {
-        echo "Success!";
+       // echo "Success!";
         while ($row = mysqli_fetch_assoc($result)) {
             $_SESSION['user_type'] = $row['user_type'];
             header('Location: read.php');
