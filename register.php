@@ -110,7 +110,7 @@ if (isset($_POST['reg_user'])) {
     else {
         $query = "INSERT INTO user (username, password, first_name, last_name, phone, email) VALUES ('$username', '$password', '$first_name', '$last_name','$phone', '$email')";
         mysqli_query($conn, $query);
-
+        $_SESSION['username'] = $username;
     }
 
 }
