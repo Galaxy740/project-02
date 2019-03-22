@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 06:19 PM
+-- Generation Time: Mar 22, 2019 at 02:36 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -86,7 +86,7 @@ CREATE TABLE `flight` (
 
 INSERT INTO `flight` (`flights_id`, `destination_id`, `planes_id`, `purchased_seats`, `available_seats`, `date_departure`, `user_id`, `flight_code`) VALUES
 (1, 4, 1, NULL, 300, '2019-03-23 11:20:00', 6, '78439100651'),
-(2, 3, 1, NULL, 300, '2019-03-15 06:59:59', 1, '8453196270');
+(3, 1, 3, NULL, 120, '2019-03-15 06:59:59', 1, '02964571083');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE `user` (
   `username` varchar(64) NOT NULL,
   `first_name` varchar(64) NOT NULL,
   `last_name` varchar(64) NOT NULL,
-  `e-mail` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
   `phone` varchar(32) NOT NULL,
   `password` varchar(128) NOT NULL,
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -131,10 +131,15 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `e-mail`, `phone`, `password`, `date_added`, `user_type`) VALUES
+INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `email`, `phone`, `password`, `date_added`, `user_type`) VALUES
 (1, 'admin11', 'admin', 'admin', 'admin@abv.bg', '', '1234', '2019-03-13 15:13:47', 'admin'),
 (5, 'user43', 'user', '', '', '', '123', '2019-03-13 15:13:43', 'user'),
-(6, 'galaxy7406', 'tsvetan', 'gergov', 'tsvetan@myself.com', '+359878935778', '123456789', '2019-03-20 08:14:25', 'user');
+(6, 'galaxy7406', 'tsvetan', 'gergov', 'tsvetan@myself.com', '+359878935778', '123456789', '2019-03-20 08:14:25', 'user'),
+(7, 'hotDog456', 'hot ', 'dog', '', '+359878935778', 'mypasswordishere', '2019-03-22 00:52:40', 'user'),
+(8, '655454', 'tsvetan', 'gergov', 'tsvetan@myself.com', '5546545', 'dshakjhsdjka', '2019-03-22 00:56:24', 'user'),
+(9, 'sidalisjd6', 'sdasdm ', 'asdamsd', 'lsdmalmd@abv.bg', '6546565', 'askdlnalks', '2019-03-22 00:57:52', 'user'),
+(10, 'dskfhs;dfsd', '54', 'dskam', 'ksdnk@abv.bg', '54656465616', 'usdaigdsiaysg', '2019-03-22 00:59:49', 'user'),
+(11, '123456789', 'ad', 'da', 'ed@an.nb', '316553544', '123456789', '2019-03-22 01:31:30', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -195,7 +200,7 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `plane`
@@ -207,7 +212,7 @@ ALTER TABLE `plane`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

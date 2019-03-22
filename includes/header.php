@@ -15,7 +15,8 @@ include 'db_connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/png" href="includes/images/icons/favicon.png"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="includes/vendor/bootstrap/css/bootstrap.min.css">
 
@@ -35,7 +36,6 @@ include 'db_connect.php';
     <link rel="stylesheet" type="text/css" href="includes/css/util.css">
 
 
-
     <link rel="stylesheet" type="text/css" href="includes/table/vendor/bootstrap/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="includes/table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -50,13 +50,14 @@ include 'db_connect.php';
 
     <link rel="stylesheet" type="text/css" href="includes/table/css/main.css">
 
-    <link href="includes/register-form/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="includes/register-form/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
+          media="all">
     <link href="includes/register-form/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
 
     <link href="includes/register-form/css/main.css" rel="stylesheet" media="all">
     <link rel="stylesheet" type="text/css" href="includes/css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
 
 </head>
