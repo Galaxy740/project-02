@@ -11,7 +11,7 @@
       $_SESSION['user_type'] = "user";
   }
 
-    $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
+    $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, `available_seats` a_s ,(seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
     $result = mysqli_query($conn, $q_read);
 
 
@@ -54,7 +54,7 @@
                         <?= $row['dd'] ?>
                     </td>
                     <td class="column100 column4">
-                        <?= $row['Available'] ?>
+                        <?= $row['a_s'] ?>
                     </td>
 
 
