@@ -5,23 +5,6 @@ session_start();
 $title = 'Register';
 include "includes/header.php";
 ?>
-    <form action="" method="post">
-
-
-
-
-
-    </form>
-
-
-    <div id="formFooter">
-
-    </div>
-    <div id="formFooter">
-
-    </div>
-
-
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
@@ -87,12 +70,9 @@ include "includes/header.php";
 
 
     <script src="includes/register-form/vendor/jquery/jquery.min.js"></script>
-
     <script src="includes/register-form/vendor/select2/select2.min.js"></script>
     <script src="includes/register-form/vendor/datepicker/moment.min.js"></script>
     <script src="includes/register-form/vendor/datepicker/daterangepicker.js"></script>
-
-
     <script src="includes/register-form/js/global.js"></script>
 
 
@@ -130,7 +110,6 @@ if (isset($_POST['reg_user'])) {
     else {
         $query = "INSERT INTO user (username, password, first_name, last_name, phone, email) VALUES ('$username', '$password', '$first_name', '$last_name','$phone', '$email')";
         mysqli_query($conn, $query);
-        $_SESSION['username'] = $username;
 
     }
 

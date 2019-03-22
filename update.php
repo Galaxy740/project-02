@@ -5,6 +5,7 @@ session_start();
 $title = 'Update';
 include "includes/header.php";
 
+
 $flights_id = $_GET['flight'];
 
 
@@ -21,54 +22,58 @@ $destination_result = mysqli_query($conn, $destination_query);
 
 ?>
 
-<div class="container">
-	<div class="row justify-content-md-center">
-		<h2>Update</h2>
-	</div>
-	<div class="row justify-content-md-center">			
-		<div class="col-sm-10">			
-			<form method="post" action="">
-				<div class="form-group">
-					<label for="product_name">Date picker</label>
-					<input type="datetime-local" class="form-control" id="date_picker" name="date_picker" value="<?= date('Y-m-d\TH:i:s',strtotime($row_flight['dd'])); ?>">
-				</div>
-				<div class="form-group">
-					<label for="product_name">Purchased seats</label>
-					<?php 
-						if(isset($_SESSION['seat_error'])){
-							echo '<span style="color:#f00">'.$_SESSION['seat_error'].'<span>';
-						} 
-						unset($_SESSION['seat_error']);
-					?>
-					<input type="text" class="form-control" id="purchased_seats" name="purchased_seats" value="<?= $row_flight['purchased_seats'] ?>">
-				</div>
-				<div class="form-group">
-					<label for="product_name">Flight code</label>
-					<input type="text" class="form-control" id="flight_code" name="flight_code" value="<?= $row_flight['flight_code'] ?>">
-				</div>
 
-				<div class="form-group">
-					<label for="manufacturer">Example select</label>
-					<select class="form-control" id="destination" name="destination_id">
-						<?php if(mysqli_num_rows($destination_result) > 0){ ?>
-							
-							<?php while($row = mysqli_fetch_assoc($destination_result)){ ?>
+    <div class="container">
+        <?php include "includes/nav/nav.html"; ?>
+        <div class="row justify-content-md-center">
+            <h2>Update</h2>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-sm-10">
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="product_name">Date picker</label>
+                        <input type="datetime-local" class="form-control" id="date_picker" name="date_picker" value="<?= date('Y-m-d\TH:i:s',strtotime($row_flight['dd'])); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="product_name">Purchased seats</label>
+                        <?php
+                        if(isset($_SESSION['seat_error'])){
+                            echo '<span style="color:#f00">'.$_SESSION['seat_error'].'<span>';
+                        }
+                        unset($_SESSION['seat_error']);
+                        ?>
+                        <input type="text" class="form-control" id="purchased_seats" name="purchased_seats" value="<?= $row_flight['purchased_seats'] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="product_name">Flight code</label>
+                        <input type="text" class="form-control" id="flight_code" name="flight_code" value="<?= $row_flight['flight_code'] ?>">
+                    </div>
 
-								<option value="<?= $row['destination_id']; ?>" <?php if( $row['destination_id'] == $row_flight['destination_id']) { echo 'selected'; } ?> ><?= $row['destination_point'] ?></option>
+                    <div class="form-group">
+                        <label for="manufacturer">Example select</label>
+                        <select class="form-control" id="destination" name="destination_id">
+                            <?php if(mysqli_num_rows($destination_result) > 0){ ?>
 
-							<?php } ?>
+                                <?php while($row = mysqli_fetch_assoc($destination_result)){ ?>
 
-						<?php } ?>
-					</select>
-				</div>
+                                    <option value="<?= $row['destination_id']; ?>" <?php if( $row['destination_id'] == $row_flight['destination_id']) { echo 'selected'; } ?> ><?= $row['destination_point'] ?></option>
 
-				<div class="form-group">
-					<button type="submit" name="submit" class="btn btn-success">SAVE changes</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+                                <?php } ?>
+
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-success">SAVE changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 <?php 
 if(isset($_POST['submit'])){
 		

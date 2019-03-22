@@ -1,4 +1,3 @@
-<body style="background-image: url('images/background.jpg');">
 <?php
 session_start();
 $title = "LOGIN";
@@ -76,4 +75,3 @@ if (isset($username) && isset($password)) {
 <?php
 include 'includes/footer.php';
 ?>
-</body>
