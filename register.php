@@ -61,7 +61,7 @@ include "includes/header.php";
                     <button class="btn btn--radius-2 btn--blue" href="includes/modules/logout_module.php">Back</button>
                     <button type="submit" class="btn btn--radius-2 btn--blue" name="reg_user">Register</button>
 
-                        <a type="button" class="btn btn--radius-2 btn btn-danger" href="index.php">Sing In</a>
+                        <a type="button" class="btn btn--radius-2 btn btn-danger" href="index.php">Sign In</a>
                 </div>
                 </form>
             </div>
@@ -108,9 +108,10 @@ if (isset($_POST['reg_user'])) {
 
     }
     else {
-        $query = "INSERT INTO user (username, password, first_name, last_name, phone, email) VALUES ('$username', '$password', '$first_name', '$last_name','$phone', '$email')";
+        $query = "INSERT INTO user (username, password, first_name, last_name, phone, email) VALUES ('$username', '$password', '$first_name', '$last_name', '$phone', '$email')";
         mysqli_query($conn, $query);
         $_SESSION['username'] = $username;
+        header('location: read.php');
     }
 
 }
