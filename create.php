@@ -71,4 +71,8 @@ if (isset($_POST['submit'])) {
     }
 }
 include 'includes/footer.php';
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> parent of 8aa2514... \z
