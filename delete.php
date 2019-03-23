@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 include 'includes/db_connect.php';
 
 $id = $_GET['flight'];
