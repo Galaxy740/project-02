@@ -3,9 +3,9 @@ session_start();
 $title = "LOGIN";
 include "includes/header.php";
 
-?>
 
-<?php
+
+
 if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

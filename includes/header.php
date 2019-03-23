@@ -10,7 +10,7 @@ include 'db_connect.php';
     <meta name="description" content="Colorlib Templates">
     <meta name="author" content="Colorlib">
     <meta name="keywords" content="Colorlib Templates">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8 Without BOM">
     <title><?= $title ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

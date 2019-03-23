@@ -13,7 +13,7 @@ $read_query .= "WHERE f.flights_id=". $flights_id;
 
 $result = mysqli_query($conn, $read_query);
 
-$row_flight = mysqli_fetch_array($result);
+$row_flight = mysqli_fetch_assoc($result);
 
 $destination_query = "SELECT * FROM destination";
 $destination_result = mysqli_query($conn, $destination_query);
@@ -94,8 +94,7 @@ if(isset($_POST['submit'])){
 		var_dump($result_update);
 
 		if($result){
-		// echo "Success!";
-			header('Location: read.php');
+		header('Location: read.php');
 		} else {
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
@@ -105,5 +104,3 @@ if(isset($_POST['submit'])){
 		header('Location: update.php?flight='.$flights_id);
 	}
 }
-
-?>
