@@ -15,9 +15,22 @@ include "includes/header.php";
 if (!empty($_GET)) {
 
     $input = $_GET['Search'];
- chekForFlightCode($input,$read_query);
-
+    var_dump($input);
+    $num_length = strlen($input);
+    if ($num_length == 11) {
+        $read_query = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, `available_seats` a_s ,(seats-purchased_seats) 
+                        AS Available 
+                        FROM 
+                        `flight` f 
+                        JOIN plane p 
+                        ON p.planes_id=f.planes_id 
+                        JOIN destination d 
+                        ON d.destination_id = f.destination_id  
+                        WHERE `flight_code`='$input'";
+    }
+    var_dump($read_query);
     $result = mysqli_query($conn, $read_query);
+    var_dump($result);
     if (mysqli_num_rows($result) > 0) {
         ?>
         <div class="table100 ver3 m-b-110">
@@ -91,22 +104,18 @@ if (!empty($_GET)) {
         <?php
     }
 
-
 }
 
 
 
 
 
-function chekForFlightCode($input,$read_query)
-{
-    $read_query ;
-    $num_length = strlen($input);
-    if ($num_length == 10) {
-        $read_query= "SELECT * FROM flight WHERE `flight_code`='$num_length'";
 
-    }
-}
+
+
+
+
+
 
 include "includes/footer.php";
 
