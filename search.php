@@ -1,5 +1,4 @@
 <?php
-session_start();
 $title = "Search";
 include "includes/header.php";
 
@@ -7,35 +6,21 @@ include "includes/header.php";
 
     <div class="container" style="padding-top: 15px">
         <form class="form-inline mr-auto">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search by flight number" name="Search" aria-label="Search" >
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="Search" aria-label="Search">
             <button class="btn btn-warning btn-rounded btn-sm my-0" type="submit">Search</button>
         </form>
     </div>
 <?php
 
-if (isset($_GET) && !empty($_GET)) {
+if (!empty($_GET)) {
 
     $input = $_GET['Search'];
-    //var_dump($input);
-    $num_length = strlen($input);
-    if ($num_length == 11) {
-        $read_query = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, `available_seats` a_s ,(seats-purchased_seats) 
-                        AS Available 
-                        FROM 
-                        `flight` f 
-                        JOIN plane p 
-                        ON p.planes_id=f.planes_id 
-                        JOIN destination d 
-                        ON d.destination_id = f.destination_id  
-                        WHERE `flight_code`='$input'";
-    }
+ chekForFlightCode($input,$read_query);
 
-    //var_dump($read_query);
     $result = mysqli_query($conn, $read_query);
-    //var_dump($result);
     if (mysqli_num_rows($result) > 0) {
         ?>
-        <div class="container table100 ver3 m-b-110" style="padding-top: 15px">
+        <div class="table100 ver3 m-b-110">
             <table data-vertable="ver3">
 
                 <thead>
@@ -106,17 +91,22 @@ if (isset($_GET) && !empty($_GET)) {
         <?php
     }
 
+
 }
 
 
 
 
 
+function chekForFlightCode($input,$read_query)
+{
+    $read_query ;
+    $num_length = strlen($input);
+    if ($num_length == 10) {
+        $read_query= "SELECT * FROM flight WHERE `flight_code`='$num_length'";
 
-
-
-
-
+    }
+}
 
 include "includes/footer.php";
 
