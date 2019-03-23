@@ -7,7 +7,7 @@ include "includes/header.php";
 
     <div class="container" style="padding-top: 15px">
         <form class="form-inline mr-auto">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search by flight number" name="Search" aria-label="Search" >
             <button class="btn btn-warning btn-rounded btn-sm my-0" type="submit">Search</button>
         </form>
     </div>
