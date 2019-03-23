@@ -5,7 +5,8 @@ include "includes/header.php";
 
 $destination_query = "SELECT * FROM destination";
 $destination_result = mysqli_query($conn, $destination_query);
-
+$planes_query = "SELECT * FROM plane";
+$planes_result = mysqli_query($conn, $planes_query);
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
@@ -31,6 +32,20 @@ $destination_result = mysqli_query($conn, $destination_query);
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="plane">Planes select</label>
+                    <select class="form-control" id="plane" name="planes_id">
+                        <?php if (mysqli_num_rows($planes_result) > 0) { ?>
+
+                            <?php while ($row = mysqli_fetch_assoc($planes_result)) { ?>
+
+                                <option value="<?= $row['planes_id'] ?>"><?= $row['plane_name'] ?></option>
+
+                            <?php } ?>
+
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="flight_code">Flight code</label>
                     <input type="text" class="form-control" id="flight code" name="flight_code"
                            placeholder="flight code here ...">
@@ -44,14 +59,14 @@ $destination_result = mysqli_query($conn, $destination_query);
 </div>
 <?php
 if (isset($_POST['submit'])) {
-
+    $planes_name = $_POST['planes_id'];
     $destination_point = $_POST['destination_id'];
     $date_departure = date('Y-m-d h:i:s');
     $flight_code = $_POST['flight_code'];
 
-    $flight_create_query = "INSERT INTO flight (flight_code, date_departure, destination_id)";
+    $flight_create_query = "INSERT INTO flight (flight_code, date_departure, destination_id, planes_id)";
 
-    $flight_create_query .= " VALUES ('" . $flight_code . "', '" . $date_departure . "', " . (int)$destination_point . ")";
+    $flight_create_query .= " VALUES ( '$flight_code', '$date_departure', '$destination_point', '$plane_name')";
 
     $result = mysqli_query($conn, $flight_create_query);
 
@@ -71,8 +86,4 @@ if (isset($_POST['submit'])) {
     }
 }
 include 'includes/footer.php';
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> parent of 8aa2514... \z
