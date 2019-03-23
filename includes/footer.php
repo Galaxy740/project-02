@@ -23,5 +23,5 @@
 <script src="table/vendor/select2/select2.min.js"></script>
 
 <script src="table/js/main.js"></script>
-
+</body>
 </html>
