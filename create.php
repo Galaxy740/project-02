@@ -15,7 +15,10 @@ $planes_result = mysqli_query($conn, $planes_query);
     <div class="row justify-content-md-center">
         <div class="col-sm-10">
             <form method="post" action="">
-
+                <div class="form-group">
+                        <label for="product_name">Date picker</label>
+                        <input type="datetime-local" class="form-control" id="date_picker" name="date_picker" value="">
+                </div>
 
                 <div class="form-group">
                     <label for="destination">Destination select</label>
@@ -59,14 +62,14 @@ $planes_result = mysqli_query($conn, $planes_query);
 </div>
 <?php
 if (isset($_POST['submit'])) {
-    $planes_name = $_POST['planes_id'];
-    $destination_point = $_POST['destination_id'];
-    $date_departure = date('Y-m-d h:i:s');
-    $flight_code = $_POST['flight_code'];
+    $plane_name        = $_POST['planes_id'];
+    $destination_point  = $_POST['destination_id'];
+    $date_field         = date('Y-m-d H:i:s',strtotime($_POST['date_picker']));
+    $flight_code        = $_POST['flight_code'];
 
     $flight_create_query = "INSERT INTO flight (flight_code, date_departure, destination_id, planes_id)";
 
-    $flight_create_query .= " VALUES ( '$flight_code', '$date_departure', '$destination_point', '$plane_name')";
+    $flight_create_query .= " VALUES ( '$flight_code', '$date_field', '$destination_point', '$plane_name')";
 
     $result = mysqli_query($conn, $flight_create_query);
 
