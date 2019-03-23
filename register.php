@@ -5,7 +5,6 @@ session_start();
 $title = 'Register';
 include "includes/header.php";
 ?>
-<<<<<<< HEAD
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
@@ -75,26 +74,6 @@ include "includes/header.php";
     <script src="includes/register-form/vendor/datepicker/moment.min.js"></script>
     <script src="includes/register-form/vendor/datepicker/daterangepicker.js"></script>
     <script src="includes/register-form/js/global.js"></script>
-=======
-    <form action="" method="post">
-        <input type="text" id="first_name" class="fadeIn second" name="first_name" placeholder="first name">
-        <input type="text" id="last_name" class="fadeIn third" name="last_name" placeholder="last name">
-        <input type="text" id="username" class="fadeIn second" name="username" placeholder="username">
-        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-
-        <button type="submit" class="btn" name="reg_user">Register</button>
-    </form>
-
-
-    <div id="formFooter">
-        <a class="underlineHover" href="index.php">Sign in</a>
-    </div>
-    <div id="formFooter">
-        <a class="underlineHover" href="index.php" onclick="<?php session_destroy(); ?>">Back</a>
-    </div>
-    </div>
-    </div>
->>>>>>> parent of 2f944bd... as
 
 
 <?php
