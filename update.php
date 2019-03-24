@@ -101,8 +101,9 @@ if(isset($_POST['submit'])){
 		}
 	}else {
 		$_SESSION['seat_error'] = 'is not a valid purchase request !!!';
-		header("Location: update.php?flight=.$flights_id");
-		exit();
+		
+		// header("Location: update.php?flight=.$flights_id");
+		// exit();
 
 		}
 
