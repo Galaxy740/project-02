@@ -103,7 +103,7 @@ if (isset($_POST['reg_user'])) {
     $result = mysqli_query($conn, $user_check_query);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "taken";
+        echo "User name is taken";
 
 
     }
