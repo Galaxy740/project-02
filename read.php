@@ -11,7 +11,7 @@
       $_SESSION['user_type'] = "user";
   }
 
-    $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
+    $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, available_seats a_s, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
     $result = mysqli_query($conn, $q_read);
 
 
@@ -29,12 +29,13 @@
                     <th class="column100 column1 " data-column="column1"><a class="btn btn-danger" href="includes/modules/logout_module.php"><i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>Sign out</a></th>
                     <th class="column100 column2" data-column="column2">Destination</th>
                     <th class="column100 column3" data-column="column3">d&t of departure</th>
+                    <th ></th>
                     <th class="column100 column4" data-column="column4">Available seats</th>
 
                     <?php if (isset($_SESSION['user_type']) == 'admin') { ?>
-                        <th class="column100 column4" data-column="column4">Purchased seats</th>
-                        <th class="column100 column5" data-column="column5">Update</th>
-                        <th class="column100 column6" data-column="column6">Delete</th>
+                        <th class="column100 column4" data-column="column5">Purchased seats</th>
+                        <th class="column100 column5" data-column="column6">Update</th>
+                        <th class="column100 column6" data-column="column7">Delete</th>
                     <?php }
 
                     ?>
@@ -58,19 +59,23 @@
                     <td class="column100 column4">
                         <?= $row['Available'] ?>
                     </td>
+                    <td class="column100 column5">
+                        <?= $row['a_s'] ?>
+                    </td>
 
 
                     <?php if (isset($_SESSION['user_type']) == 'admin') {
 
                         ?>
-                        <td class="column100 column4">
+                        <td class="column100 column6">
                             <?= $row['purchased_seats'] ?>
                         </td>
-                        <td class="column100 column5">
+
+                        <td class="column100 column7">
                             <a class="btn btn-primary"
                                href="update.php?flight=<?= $row['flights_id'] ?>">Update</a>
                         </td>
-                        <td class="column100 column5">
+                        <td class="column100 column8">
                             <a class="btn btn-primary"
                                href="delete.php?flight=<?= $row['flights_id'] ?>">Delete</a>
                         </td>
