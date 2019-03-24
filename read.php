@@ -7,7 +7,7 @@
 
     $title = 'Read';
     include "includes/header.php";
-  if (!empty($_SESSION)){
+  if (empty($_SESSION)){
       $_SESSION['user_type'] = "user";
   }
 

@@ -19,7 +19,7 @@ if (!empty($_GET)) {
     $input = $_GET['Search'];
 
     $num_length = strlen($input);
-    //var_dump($num_length);
+    var_dump($num_length);
     if ($num_length == 11) {
         $read_query= "  SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats), available_seats a_s, flight_code 
                         AS Available 
@@ -31,9 +31,9 @@ if (!empty($_GET)) {
                         WHERE `flight_code`='$input'";
 
     }
-    //var_dump($read_query);
+    var_dump($read_query);
     $result = mysqli_query($conn, $read_query);
-   // var_dump($result);
+   var_dump($result);
     if (mysqli_num_rows($result) > 0) {
         ?>
         <div class="container table100 ver3 m-b-110" style="padding-top: 15px">
