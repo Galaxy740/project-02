@@ -19,6 +19,9 @@ if (isset($username) && isset($password)) {
         // echo "Success!";
         while ($row = mysqli_fetch_assoc($result)) {
             $_SESSION['user_type'] = $row['user_type'];
+            if (!empty($_SESSION['user_type'])){
+                $_SESSION['user_type'] = "user";
+            }
             header('Location: read.php');
         }
 
