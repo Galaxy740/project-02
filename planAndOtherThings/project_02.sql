@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 март 2019 в 10:36
--- Версия на сървъра: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Mar 24, 2019 at 10:52 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `brand`
+-- Table structure for table `brand`
 --
 
 CREATE TABLE `brand` (
@@ -34,7 +34,7 @@ CREATE TABLE `brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `brand`
+-- Dumping data for table `brand`
 --
 
 INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `destination`
+-- Table structure for table `destination`
 --
 
 CREATE TABLE `destination` (
@@ -54,7 +54,7 @@ CREATE TABLE `destination` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `destination`
+-- Dumping data for table `destination`
 --
 
 INSERT INTO `destination` (`destination_id`, `destination_point`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `destination` (`destination_id`, `destination_point`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `flight`
+-- Table structure for table `flight`
 --
 
 CREATE TABLE `flight` (
@@ -79,24 +79,16 @@ CREATE TABLE `flight` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `flight`
+-- Dumping data for table `flight`
 --
 
 INSERT INTO `flight` (`flights_id`, `destination_id`, `planes_id`, `purchased_seats`, `date_departure`, `flight_code`) VALUES
-(4, 3, 1, 111, '2019-03-11 12:00:00', '123123'),
-(6, 3, 1, 10, '2019-03-05 14:22:00', '8453196270'),
-(7, 2, 1, 33, '2019-02-02 14:02:00', '8453196270'),
-(8, 3, 1, 0, '2019-02-02 14:02:00', '8453196270'),
-(9, 3, 1, 0, '1970-01-01 02:00:00', '8453196270'),
-(10, 4, 1, 0, '2019-02-02 17:02:00', '123'),
-(11, 4, 1, 0, '2019-02-02 17:02:00', '123'),
-(12, 1, 1, 100, '1970-01-01 02:00:00', '123123'),
-(13, 3, 1, 0, '2019-03-31 04:33:00', '321');
+(2, 4, 1, 300, '2019-03-23 11:20:00', '123456789cd');
 
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `plane`
+-- Table structure for table `plane`
 --
 
 CREATE TABLE `plane` (
@@ -107,7 +99,7 @@ CREATE TABLE `plane` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `plane`
+-- Dumping data for table `plane`
 --
 
 INSERT INTO `plane` (`planes_id`, `brand_id`, `seats`, `plane_name`) VALUES
@@ -116,7 +108,7 @@ INSERT INTO `plane` (`planes_id`, `brand_id`, `seats`, `plane_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -132,7 +124,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Схема на данните от таблица `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `email`, `phone`, `password`, `date_added`, `user_type`) VALUES
@@ -202,7 +194,7 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `plane`
@@ -217,11 +209,11 @@ ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Ограничения за дъмпнати таблици
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения за таблица `flight`
+-- Constraints for table `flight`
 --
 ALTER TABLE `flight`
   ADD CONSTRAINT `destination_id` FOREIGN KEY (`destination_id`) REFERENCES `destination` (`destination_id`);
