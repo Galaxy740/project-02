@@ -9,6 +9,7 @@ $planes_query = "SELECT * FROM plane";
 $planes_result = mysqli_query($conn, $planes_query);
 ?>
 <div class="container">
+    <?php include"includes/nav/nav.php"?>
     <div class="row justify-content-md-center">
 
     </div>
@@ -82,7 +83,7 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
         // echo "Success!";
-        header('Location: read.php');
+        //header('Location: read.php');
     } else {
         echo mysqli_error($conn);
         // echo "Please, try again later!";

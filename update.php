@@ -22,7 +22,7 @@ $destination_result = mysqli_query($conn, $destination_query);
 ?>
 
     <div class="container">
-        <?php include "includes/nav/nav.html";?>
+        <?php include "includes/nav/nav.php";?>
         <div class="row justify-content-md-center">
             <h2>Update</h2>
         </div>

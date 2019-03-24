@@ -7,14 +7,14 @@
 
     $title = 'Read';
     include "includes/header.php";
-
+    include "includes/nav/nav.php";
 
 $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
     $result = mysqli_query($conn, $q_read);
 
     if (mysqli_num_rows($result) > 0) {
     
-     include "includes/nav/nav.html"; 
+
 
    ?>
         <div class="table100 ver3 m-b-110">
@@ -86,10 +86,7 @@ $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flig
             </table>
         </div>
         <?php
-        if (isset($_SESSION['user_type']) == 'admin') { ?>
-            <a class="btn btn-warning" href="create.php">Add new flight</a>
-            <?php
-        }
+
 
     }
     ?>

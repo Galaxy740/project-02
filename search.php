@@ -5,12 +5,17 @@ $title = "Search";
 include "includes/header.php";
 
 ?>
-
+    <div class="container">
+        <?php include"includes/nav/nav.php"?>
+    </div>
     <div class="container" style="padding-top: 15px">
+
         <form class="form-inline mr-auto">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="Search" aria-label="Search">
             <button class="btn btn-warning btn-rounded btn-sm my-0" type="submit">Search</button>
+
         </form>
+
     </div>
 <?php
 
