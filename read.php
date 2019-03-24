@@ -1,16 +1,16 @@
 <body style="background-image: url('images/background.jpg');">
 <div class="container">
 
-<?php
+    <?php
 
-session_start();
+    session_start();
 
-$title = 'Read';
-include "includes/header.php";
-include "includes/nav/nav.php";
+    $title = 'Read';
+    include "includes/header.php";
+    include "includes/nav/nav.php";
 
 $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
-$result = mysqli_query($conn, $q_read);
+    $result = mysqli_query($conn, $q_read);
 
     if (mysqli_num_rows($result) > 0) {
     
