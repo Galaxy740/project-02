@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $title = 'Update';
 include "includes/header.php";
 
@@ -95,6 +94,7 @@ if(isset($_POST['submit'])){
 
 		if($result){
 		header('Location: read.php');
+		exit;
 		} else {
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
@@ -102,5 +102,6 @@ if(isset($_POST['submit'])){
 	}else {
 		$_SESSION['seat_error'] = 'is not a valid purchase request !!!';
 		header('Location: update.php?flight='.$flights_id);
+		exit;
 	}
 }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2019 at 02:36 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: 24 март 2019 в 10:36
+-- Версия на сървъра: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brand`
+-- Структура на таблица `brand`
 --
 
 CREATE TABLE `brand` (
@@ -34,7 +34,7 @@ CREATE TABLE `brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `brand`
+-- Схема на данните от таблица `brand`
 --
 
 INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `brand` (`brand_id`, `brand_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `destination`
+-- Структура на таблица `destination`
 --
 
 CREATE TABLE `destination` (
@@ -54,7 +54,7 @@ CREATE TABLE `destination` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `destination`
+-- Схема на данните от таблица `destination`
 --
 
 INSERT INTO `destination` (`destination_id`, `destination_point`) VALUES
@@ -66,53 +66,57 @@ INSERT INTO `destination` (`destination_id`, `destination_point`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `flight`
+-- Структура на таблица `flight`
 --
 
 CREATE TABLE `flight` (
   `flights_id` int(11) NOT NULL,
   `destination_id` int(11) NOT NULL,
   `planes_id` int(11) NOT NULL,
-  `purchased_seats` int(8) DEFAULT NULL,
-  `available_seats` int(11) NOT NULL,
+  `purchased_seats` int(11) NOT NULL,
   `date_departure` datetime NOT NULL,
-  `user_id` int(11) NOT NULL,
   `flight_code` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `flight`
+-- Схема на данните от таблица `flight`
 --
 
-INSERT INTO `flight` (`flights_id`, `destination_id`, `planes_id`, `purchased_seats`, `available_seats`, `date_departure`, `user_id`, `flight_code`) VALUES
-(1, 4, 1, NULL, 300, '2019-03-23 11:20:00', 6, '78439100651'),
-(3, 1, 3, NULL, 120, '2019-03-15 06:59:59', 1, '02964571083');
+INSERT INTO `flight` (`flights_id`, `destination_id`, `planes_id`, `purchased_seats`, `date_departure`, `flight_code`) VALUES
+(4, 3, 1, 111, '2019-03-11 12:00:00', '123123'),
+(6, 3, 1, 10, '2019-03-05 14:22:00', '8453196270'),
+(7, 2, 1, 33, '2019-02-02 14:02:00', '8453196270'),
+(8, 3, 1, 0, '2019-02-02 14:02:00', '8453196270'),
+(9, 3, 1, 0, '1970-01-01 02:00:00', '8453196270'),
+(10, 4, 1, 0, '2019-02-02 17:02:00', '123'),
+(11, 4, 1, 0, '2019-02-02 17:02:00', '123'),
+(12, 1, 1, 100, '1970-01-01 02:00:00', '123123'),
+(13, 3, 1, 0, '2019-03-31 04:33:00', '321');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `plane`
+-- Структура на таблица `plane`
 --
 
 CREATE TABLE `plane` (
   `planes_id` int(11) NOT NULL,
   `brand_id` int(11) NOT NULL,
-  `seats` int(8) NOT NULL
+  `seats` int(11) NOT NULL,
+  `plane_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `plane`
+-- Схема на данните от таблица `plane`
 --
 
-INSERT INTO `plane` (`planes_id`, `brand_id`, `seats`) VALUES
-(1, 1, 300),
-(2, 3, 120),
-(3, 2, 240);
+INSERT INTO `plane` (`planes_id`, `brand_id`, `seats`, `plane_name`) VALUES
+(1, 1, 300, 'Airbus');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура на таблица `user`
 --
 
 CREATE TABLE `user` (
@@ -128,7 +132,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Схема на данните от таблица `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `email`, `phone`, `password`, `date_added`, `user_type`) VALUES
@@ -139,7 +143,7 @@ INSERT INTO `user` (`user_id`, `username`, `first_name`, `last_name`, `email`, `
 (8, '655454', 'tsvetan', 'gergov', 'tsvetan@myself.com', '5546545', 'dshakjhsdjka', '2019-03-22 00:56:24', 'user'),
 (9, 'sidalisjd6', 'sdasdm ', 'asdamsd', 'lsdmalmd@abv.bg', '6546565', 'askdlnalks', '2019-03-22 00:57:52', 'user'),
 (10, 'dskfhs;dfsd', '54', 'dskam', 'ksdnk@abv.bg', '54656465616', 'usdaigdsiaysg', '2019-03-22 00:59:49', 'user'),
-(11, '123456789', 'ad', 'da', 'ed@an.nb', '316553544', '123456789', '2019-03-22 01:31:30', 'admin');
+(12, '123123', 'Nikolai', 'Nedev', 'nikolai_nedevv@abv.bg', '123123', '123123', '2019-03-24 08:17:58', 'user');
 
 --
 -- Indexes for dumped tables
@@ -163,9 +167,7 @@ ALTER TABLE `destination`
 ALTER TABLE `flight`
   ADD PRIMARY KEY (`flights_id`),
   ADD KEY `destination_id` (`destination_id`),
-  ADD KEY `planes_id` (`planes_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `available_seats` (`available_seats`);
+  ADD KEY `planes_id` (`planes_id`);
 
 --
 -- Indexes for table `plane`
@@ -200,7 +202,7 @@ ALTER TABLE `destination`
 -- AUTO_INCREMENT for table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `flights_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `plane`
@@ -212,19 +214,17 @@ ALTER TABLE `plane`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Constraints for dumped tables
+-- Ограничения за дъмпнати таблици
 --
 
 --
--- Constraints for table `flight`
+-- Ограничения за таблица `flight`
 --
 ALTER TABLE `flight`
-  ADD CONSTRAINT `destination_id` FOREIGN KEY (`destination_id`) REFERENCES `destination` (`destination_id`),
-  ADD CONSTRAINT `planes_id` FOREIGN KEY (`planes_id`) REFERENCES `brand` (`brand_id`),
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `destination_id` FOREIGN KEY (`destination_id`) REFERENCES `destination` (`destination_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
