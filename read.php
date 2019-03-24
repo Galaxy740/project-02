@@ -7,7 +7,7 @@
 
     $title = 'Read';
     include "includes/header.php";
-  
+
 
     $q_read = "SELECT purchased_seats, date_departure dd,destination_point dp,  `flights_id`, (seats-purchased_seats) AS Available FROM `flight` f JOIN plane p ON p.planes_id=f.planes_id JOIN destination d ON d.destination_id = f.destination_id";
     $result = mysqli_query($conn, $q_read);
@@ -27,7 +27,7 @@
                     <th class="column100 column1 " data-column="column1"><a class="btn btn-danger" href="includes/modules/logout_module.php"><i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>Sign out</a></th>
                     <th class="column100 column2" data-column="column2">Destination</th>
                     <th class="column100 column3" data-column="column3">d&t of departure</th>
-                    <th class="column100 column4" ></th>
+                    <th class="column100 column4"  data-column="column4">Available</th>
 
                     <?php if (isset($_SESSION['user_type']) == 'admin') { ?>
                         <th class="column100 column5" data-column="column5">Purchased seats</th>
@@ -62,15 +62,15 @@
                     <?php if (isset($_SESSION['user_type']) == 'admin') {
 
                         ?>
-                        <td class="column100 column6">
+                        <td class="column100 column5">
                             <?= $row['purchased_seats'] ?>
                         </td>
 
-                        <td class="column100 column7">
+                        <td class="column100 column6">
                             <a class="btn btn-primary"
                                href="update.php?flight=<?= $row['flights_id'] ?>">Update</a>
                         </td>
-                        <td class="column100 column8">
+                        <td class="column100 column7">
                             <a class="btn btn-primary"
                                href="delete.php?flight=<?= $row['flights_id'] ?>">Delete</a>
                         </td>
