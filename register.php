@@ -103,7 +103,7 @@ if (isset($_POST['reg_user'])) {
     $result = mysqli_query($conn, $user_check_query);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "User name is taken";
+        echo "taken";
 
 
     }
@@ -112,6 +112,7 @@ if (isset($_POST['reg_user'])) {
         mysqli_query($conn, $query);
         $_SESSION['username'] = $username;
         header('location: read.php');
+        exit;
     }
 
 }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $title = 'Update';
 include "includes/header.php";
 
@@ -90,18 +91,19 @@ if(isset($_POST['submit'])){
 		// var_dump($flight_update_query)
 		$result_update = mysqli_query($conn, $flight_update_query);
 
-		var_dump($result_update);
+		//var_dump($result_update);
 
 		if($result){
-		header('Location: read.php');
-		exit;
+
 		} else {
 			echo mysqli_error($conn);
 		// echo "Please, try again later!";
 		}
 	}else {
 		$_SESSION['seat_error'] = 'is not a valid purchase request !!!';
-		header('Location: update.php?flight='.$flights_id);
-		exit;
-	}
+		header("Location: update.php?flight=.$flights_id");
+		exit();
+
+		}
+
 }
