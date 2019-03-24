@@ -11,7 +11,7 @@ include "includes/header.php";
     <div class="container" style="padding-top: 15px">
 
         <form class="form-inline mr-auto">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search by flight code" name="Search" aria-label="Search">
             <button class="btn btn-warning btn-rounded btn-sm my-0" type="submit">Search</button>
 
         </form>
@@ -26,13 +26,13 @@ if (!empty($_GET)) {
     $num_length = strlen($input);
    // var_dump($num_length);
     if ($num_length == 11) {
-        $read_query = "  SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats), flight_code 
-                        AS Available 
-                        FROM `flight` f 
-                        JOIN plane p 
-                        ON p.planes_id=f.planes_id 
+        $read_query = "  SELECT purchased_seats, date_departure dd,destination_point dp, `flights_id`, (seats-purchased_seats), flight_code
+                        AS Available
+                        FROM `flight` f
+                        JOIN plane p
+                        ON p.planes_id=f.planes_id
                         JOIN destination d
-                        ON d.destination_id = f.destination_id 
+                        ON d.destination_id = f.destination_id
                         WHERE `flight_code`='$input'";
 
     }
